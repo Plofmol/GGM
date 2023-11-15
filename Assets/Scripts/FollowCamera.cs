@@ -43,7 +43,7 @@ public class FollowCamera : MonoBehaviour
         Vector3 aheadTargerPos = target.position + LookAheadPos + Vector3.forward * offsetZ;
         Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargerPos, ref currentVelocity, damping);
 
-        newPos.y = Mathf.Min(newPos.y, 3); // Limit Y value to 20
+        newPos.y = Mathf.Min(newPos.y, 4); // Limit Y value to 20
 
         transform.position = newPos;
 

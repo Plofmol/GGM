@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
     public Animator animator;
-    public DoorController doorController;
+    
 
     public float runSpeed = 40f;
 
@@ -60,14 +60,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Door"))
-        {
-            DoorController doorController = collision.gameObject.GetComponent<DoorController>();
-            doorController.Warp();
-        }
-    }
+    
 
 
 }
