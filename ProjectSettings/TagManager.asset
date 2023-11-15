@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Teleporter
+  - Audio
   layers:
   - Default
   - TransparentFX

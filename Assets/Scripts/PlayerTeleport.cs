@@ -6,7 +6,12 @@ public class PlayerTeleport : MonoBehaviour
 {
 
     private GameObject currentTeleporter;
-       
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -15,7 +20,9 @@ public class PlayerTeleport : MonoBehaviour
         {
             if (currentTeleporter != null) 
             {
+                audioManager.PlaySFX(audioManager.Door);
                 transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
+                
             }
         }
     }

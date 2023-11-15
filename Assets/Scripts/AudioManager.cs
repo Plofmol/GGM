@@ -25,6 +25,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip shotgun;
     public AudioClip reloadshot;
     public AudioClip bazooka;
+    public AudioClip bazooka_explosion;
     public AudioClip reloadbazooka;
 
     public AudioClip Jump;
@@ -33,5 +34,17 @@ public class AudioManager : MonoBehaviour
     public AudioClip fall;
 
     public AudioClip die;
+
+    private void Start()
+    {
+        musicSource.clip = Start_music;
+        musicSource.Play();
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
+        
+    }
 
 }

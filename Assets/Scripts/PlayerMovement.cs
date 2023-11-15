@@ -6,19 +6,31 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
     public Animator animator;
-    
+    public AudioManager audioManager;
+
+
 
     public float runSpeed = 40f;
 
     float horizontalMove = 0f;
 
     bool jump = false;
-    bool crouch = false;   
+    bool crouch = false;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
+    
+
+
 
     // Update is called once per frame
     void Update()
@@ -31,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         { 
             jump = true;
             animator.SetBool("IsJumping", true);
+            //audioManager.PlaySFX(audioManager.Jump);
         }
 
         if (Input.GetButtonDown("Fire1"))
@@ -45,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnLanding()
     {
         animator.SetBool("IsJumping", false);
+        audioManager.PlaySFX(audioManager.fall);
     }
 
     public void OnCrouching(bool isCrouching)
